@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试结果</title>
+		<script language="javascript" src="jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+			
+			window.onload = function () {
+				var result = localStorage.getItem("result");
+				numberOfStatistical(JSON.parse(result));
+			}
+			
+			function numberOfStatistical(result){
+				
+				var dic = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0};
+				
+				$.each(result, function(key,value) {
+					var group = parseInt(key/6);
+					if (key%6!=0){group++}
+					if (value==1) {
+						dic[group] = dic[group]+1;
+					}
+				});
+				var items = $('.count');
+				$.each(items, function(index,item) {
+					item.innerHTML = dic[index+1];
+				});
+			}
+			
+		</script>
+		<style type="text/css">
+			
+			#form {
+				margin: 30px 5% 10px 5%;
+				width: 90%;
+			}
+			
+			.result_introduce {
+				margin: 10px auto;
+				padding: 0 5%;
+				white-space: pre-wrap;
+				word-wrap: break-word;
+				font-size: 16px;
+				line-height: 20px;
+			}
+			.td {
+				border:solid 1px #add9c0;
+				text-align: center;
+				color: red;
+				height: 40px;
+				font-size: 18px;
+			}
+			
+			.th {
+				font-size: 18px;
+				height: 40px;
+				border:solid 1px #add9c0
+			}
+			
+			#title {
+				margin: 50px 5% 0 5%;
+				font-size: 22px;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body>
+		
+		<table id="form" cellpadding="0" cellspacing="0">
+			 <thead>
+		        <tr>
+		            <th class="th">组名</th>
+		            <th class="th">回答“是”的次数</th>
+		            <th class="th">相应的职业兴趣</th>
+		        </tr>
+   			 </thead>
+    			 <tbody>
+		        <tr>
+		            <td class="td">第一组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型1</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第二组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型2</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第三组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型3</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第四组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型4</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第五组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型5</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第六组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型6</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第七组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型7</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第八组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型8</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第九组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型9</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第十组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型10</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第十一组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型11</td>
+		        </tr>
+		        <tr>
+		            <td class="td">第十二组</td>
+		            <td class="td count"></td>
+		            <td class="td">兴趣类型12</td>
+		        </tr>
+    			 </tbody>
+    			 <tfoot>
+    			 	<tr>
+                    <td colspan="5" style="height: 40px; font-size: 18px;">每组“是”的次数越高的，则相应的兴趣类型与你的兴趣更为一致。</td>
+    			 	</tr>
+    			 </tfoot>
+		</table>
+		
+		<div id="title">各种兴趣类型的特点与相应的职业</div>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型1-----喜欢与工具打交道</pre>
+		<pre class="result_introduce">这类人喜欢使用工作、器具进行劳动的活动，而不喜欢从事与人或动物打交道的职业。相应的职业如修理工、建筑工、木匠、裁缝等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型2-----喜欢与人相接触</pre>
+		<pre class="result_introduce">这类人喜欢与他人接触的工作，他们喜欢销售、采访、传递信息一类的活动。相应的职业如记者、营业员、邮递员、推销员等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型3------喜欢从事文字符号类工作</pre>
+		<pre class="result_introduce">这类人喜欢与文字、数字、表格等打交道的工作。相应的职业如会计、出纳、校对员、打字员、档案管理员、图书管理员等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型4------喜欢地理地质类职业</pre>
+		<pre class="result_introduce">这类人喜欢在野外工作，如地于是考察、地质勘探等活动。相应的职业如勘探工、钻井工、地质勘探人员。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型5------喜欢生物、化学和农业类职业</pre>
+		<pre class="result_introduce">这在人喜欢实验性的工作。相应的职业如农技员、化验员、饲养员等等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型6-----喜欢从事社会福利和助人工作</pre>
+		<pre class="result_introduce">这类人乐意帮助别人，他们试图改善他人的状况，喜欢独自与人接触。相应的职业诸如医生、律师、护士、咨询人员。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型7-----喜欢行政和管理的工作</pre>
+		<pre class="result_introduce">这类人喜欢管理人员的工作，爱好做别人的思想工作，他们在各行业中起重要的作用。相应的职业如辅导员、行政人员等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型8-----喜欢研究人的行为</pre>
+		<pre class="result_introduce">这类人喜欢谈论涉及到人的主题，他们爱研究人的行为举止和心理状态。相应的职业如心理学工作者，哲学、人文科学、人类学研究者。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型9-----喜欢从事科学技术事业</pre>
+		<pre class="result_introduce">这类人喜欢科学、技术、机械、工程类活动。相应的职业如建筑师、工技术人员。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型10---喜欢从事想象的创造性的工作</pre>
+		<pre class="result_introduce">这类人喜欢需要有想象力和创造力的工作，爱创造新的式样和概念。相应的职业如演员、作家、创作人员、设计人员、画家等。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型11----喜欢做操作机器的技术工作</pre>
+		<pre class="result_introduce">这类人喜欢运用一定的技术，纵各种机器，制造产品或完成其他任务。相应的职业如驾驶员、飞行员、海员、机床工。</pre>
+		<pre class="result_introduce">&nbsp;&nbsp;&nbsp;兴趣类型12---喜欢从事具体的工作</pre>
+		<pre class="result_introduce">这类人喜欢制作能看得见、摸得着的产品；希望很快看到自己的成果，他们从完成的产品中得到自我满足。相应的职业如厨师、园林工、农民、理发师等等。</pre>
+	</body>
+</html>
